@@ -11,10 +11,12 @@ import { UserContextProvider } from "./components/context/UserContext";
 import { List } from "./components/generics/List";
 import Greet from "./components/Greet";
 import { Heading } from "./components/Heading";
+import { CustomButton } from "./components/html/Button";
 import { Input } from "./components/Input";
 import { Oscar } from "./components/Oscar";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import { Text } from "./components/ploymorphic/Text";
 import { DomRef } from "./components/ref/DomRef";
 import { MutableRef } from "./components/ref/MutableRef";
 import { RandomNumber } from "./components/restriction/RandomNumber";
@@ -22,6 +24,7 @@ import { Counter } from "./components/state/Counter";
 import { LoggedIn } from "./components/state/LoggedIn";
 import { User } from "./components/state/User";
 import { Status } from "./components/Status";
+import { Toast } from "./components/templateLiterals/Toast";
 function App() {
   const personName = {
     firstName: "Ajay",
@@ -84,10 +87,24 @@ function App() {
         items={[{ id: "a" }, { id: "c" }]}
         onClick={(item) => console.log(item)}
       />
-      <RandomNumber
-        value={2}
-        isPositive={true}
-      />
+      <RandomNumber value={2} isPositive={true} />
+      <Toast position="center" />
+      <CustomButton
+        name={"hello"}
+        variant="primary"
+        onClick={() => console.log("hello")}
+      >
+        Primary Button
+      </CustomButton>
+      <Text as="h1" size="lg">
+        Heading
+      </Text>
+      <Text as="p" size="md">
+        Paragraph
+      </Text>
+      <Text as="label" htmlFor="id" size="sm" color="primary">
+        Label
+      </Text>
     </>
   );
 }
