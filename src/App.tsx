@@ -1,16 +1,23 @@
 import "./App.css";
+import { Private } from "./components/auth/Private";
+import { Profile } from "./components/auth/Profile";
 import { Button } from "./components/Button";
+import { CounterClass } from "./components/class/CounterClass";
 import { Container } from "./components/Container";
 import { Box } from "./components/context/Box";
 import { ThemeContextProvider } from "./components/context/ThemeContext";
 import Userc from "./components/context/Userc";
 import { UserContextProvider } from "./components/context/UserContext";
+import { List } from "./components/generics/List";
 import Greet from "./components/Greet";
 import { Heading } from "./components/Heading";
 import { Input } from "./components/Input";
 import { Oscar } from "./components/Oscar";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import { DomRef } from "./components/ref/DomRef";
+import { MutableRef } from "./components/ref/MutableRef";
+import { RandomNumber } from "./components/restriction/RandomNumber";
 import { Counter } from "./components/state/Counter";
 import { LoggedIn } from "./components/state/LoggedIn";
 import { User } from "./components/state/User";
@@ -62,6 +69,25 @@ function App() {
       <UserContextProvider>
         <Userc />
       </UserContextProvider>
+      <DomRef />
+      <MutableRef />
+      <CounterClass />
+
+      <Private component={Profile} isLoggedIn={true} />
+
+      <List
+        items={["batman", "superman", "wonder woman"]}
+        onClick={(item) => console.log(item)}
+      />
+      <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+      <List
+        items={[{ id: "a" }, { id: "c" }]}
+        onClick={(item) => console.log(item)}
+      />
+      <RandomNumber
+        value={2}
+        isPositive={true}
+      />
     </>
   );
 }
